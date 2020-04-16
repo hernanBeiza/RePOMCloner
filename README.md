@@ -13,6 +13,14 @@ Recordar pasar el archivo pom.xml
 python repomcloner.py repobase pom.xml
 ```
 
+## Cambiar todos los repositorios a una rama específica
+
+Usar el script rama.py y pasar por parámetros la carpeta base que contiene los repositorios y el nombre de la rama
+
+```
+python rama.py carpetarepobase rama
+```
+
 ## Dependencias
 
 - python
