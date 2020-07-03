@@ -14,7 +14,7 @@ def leer(carpeta,rama):
     ruta = carpeta+item
     if(os.path.isdir(ruta)):
       print(item)
-      linea = "cd " + ruta +" && git checkout " + rama
+      linea = "cd " + ruta +" && git checkout " + rama +" && git pull"
       os.system(linea)
 
 if __name__ == '__main__':
@@ -22,6 +22,6 @@ if __name__ == '__main__':
     print(argv);
     #argv por defecto
     #argv = ['script', '1', '2', '3']
-    print("Falta especificar archivo , repositorio y archivo pom.xml");
+    print("Falta especificar carpeta y rama");
   else:
     main(argv)
