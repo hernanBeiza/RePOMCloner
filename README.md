@@ -1,24 +1,20 @@
 # RePOMCloner
 
-Script en Python que lee los modulso del archivo pom.xml y los clona uno a uno. 
-Este script está pensando especialmente para un proyecto que contiene los módulos maven en un archivo pom.xml, como en APIs Rest en SpringBoot.
+Conjuntos de scripts en Python útiles para proyectos de múltiples repositorios, como microservicios SpringBoot.
 
-La salida de los módulos clonados tienen como destino la carpeta contenedora del archivo pom.xml, el cuál se pasa por parámetro al ejecutar el script.
+### CLIs
+
+- brancher: Cambiar todos los repositorios a una rama específica
+- cleaner: Ejecutar mvn clean install en todos los repositorios de una carpeta
+- puller: Ejecutar git pull en todos los repositorios de una carpet
+- repomcloner: Clona uno a uno todos los módulos de un archivo pom.xml
 
 ## Ejecución
 
-Recordar pasar el archivo pom.xml
+Revisar archivo README.md de cada CLI
 
 ```
 python repomcloner.py repobase pom.xml
-```
-
-## Cambiar todos los repositorios a una rama específica
-
-Usar el script rama.py y pasar por parámetros la carpeta base que contiene los repositorios y el nombre de la rama
-
-```
-python rama.py carpetarepobase rama
 ```
 
 ## Dependencias
@@ -29,4 +25,4 @@ python rama.py carpetarepobase rama
 
 ## Futuro
 
-- Agregar parámetro para setear la ruta del repositorio base
+- Crear una gran CLI para englobar todos estos CLI
