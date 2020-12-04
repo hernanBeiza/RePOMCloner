@@ -2,19 +2,20 @@ import os
 from sys import argv
 from xml.dom import minidom
 
-def main(argv):
-  print("main: repomcloner")
-  print(argv)
-  main,repo,entradaPom = argv
+def main(argv=None):
+  print("repomcloner")
+  if(argv==None):
+    repo = input("Ingresa la url del repositorio: ");
+    entradaPom = input("Ingresa el archivo pom.xml: ");
+  else:
+    main,repo,entradaPom = argv
   leerPom(repo,entradaPom)
 
 def leerPom(repo,entradaPom):
-  print("leerPom")  
+  print("leerPom " + entradaPom);  
   try:
     pomXML = minidom.parse(entradaPom)
     carpetaSalida = os.path.dirname(entradaPom);
-    print (carpetaSalida);
-
     modules = pomXML.getElementsByTagName('module')
     #print(modules)
     for module in modules:
@@ -27,7 +28,7 @@ def leerPom(repo,entradaPom):
     print ("Error: Archivo Pom "+entradaPom+ " no existe.")
 
 def limpiarSalida(archivoSalida):
-  print("limpiarSalida "+archivoSalida)
+  #print("limpiarSalida "+archivoSalida)
   try:
     raw = open(archivoSalida, "r+")
     contents = raw.read().split("\n")
@@ -37,10 +38,11 @@ def limpiarSalida(archivoSalida):
     print ("Error: Archivo "+archivoSalida+ " no existe.")
 
 if __name__ == '__main__':
-  if len(argv) < 1:
-    print(argv);
+  if len(argv) < 3:
+    #print(argv);
     #argv por defecto
     #argv = ['script', '1', '2', '3']
-    print("Falta especificar archivo pom.xml");
+    print("Falta especificar repo y archivo pom.xml");
+    #main(None);
   else:
     main(argv)

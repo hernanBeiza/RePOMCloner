@@ -1,14 +1,18 @@
 import os
 from sys import argv
 
-def main(argv):
-  print("main: maven")
-  print(argv)
-  main,carpeta = argv
-  leer(carpeta)
+def main(argv=None):
+  print("cleaner")
+  if(argv==None):
+    carpeta = input("Ingresa la carpeta contenedora de tus repositorios: ");
+  else:
+    main,carpeta = argv;
+  leer(carpeta);
 
 def leer(carpeta):
-  print("leer")  
+  print("leer " + carpeta);
+  if(carpeta.endswith("/")==False):
+    carpeta+="/"
   carpetas = os.listdir(carpeta);
   for item in carpetas:
     ruta = carpeta+item
@@ -19,9 +23,8 @@ def leer(carpeta):
 
 if __name__ == '__main__':
   if len(argv) < 2:
-    print(argv);
     #argv por defecto
     #argv = ['script', '1', '2', '3']
-    print("Falta especificar carpeta");
+    print("Falta especificar carpeta con repositorios");
   else:
     main(argv)
