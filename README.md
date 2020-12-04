@@ -1,6 +1,6 @@
 # RePOMCloner
 
-Conjuntos de scripts en Python útiles para proyectos de múltiples repositorios, como microservicios SpringBoot.
+Conjunto de scripts en Python útiles para proyectos de múltiples repositorios, como microservicios SpringBoot.
 
 ### CLIs
 
