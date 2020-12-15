@@ -1,18 +1,26 @@
 import os
 from sys import argv
 from xml.dom import minidom
+from colorama import Fore, Back, Style, init
+init(autoreset=True)
 
 def main(argv=None):
   print("repomcloner")
   if(argv==None):
     repo = input("Ingresa la url del repositorio: ");
+    """
+    if not repo:
+      repo = "https://dev.azure.com/CAPJ/Unificado/_git/";
+      if(repo.endswith("/")==False):
+        repo+="/"
+    """
     entradaPom = input("Ingresa el archivo pom.xml: ");
   else:
     main,repo,entradaPom = argv
   leerPom(repo,entradaPom)
 
 def leerPom(repo,entradaPom):
-  print("leerPom " + entradaPom);  
+  #print("leerPom " + entradaPom);  
   try:
     pomXML = minidom.parse(entradaPom)
     carpetaSalida = os.path.dirname(entradaPom);
@@ -21,7 +29,7 @@ def leerPom(repo,entradaPom):
     for module in modules:
       #print(module.firstChild.data)
       linea = "cd " + carpetaSalida +" && git clone "+repo+module.firstChild.data;
-      print(linea)
+      print(Fore.CYAN + linea);
       os.system(linea)
 
   except IOError:
@@ -42,7 +50,7 @@ if __name__ == '__main__':
     #print(argv);
     #argv por defecto
     #argv = ['script', '1', '2', '3']
-    print("Falta especificar repo y archivo pom.xml");
+    print(Fore.RED + "Falta especificar repo y archivo pom.xml");
     #main(None);
   else:
     main(argv)

@@ -18,7 +18,7 @@ setup(
 	author_email = 'hernan@hiperactivo.cl',
 	packages = find_packages('src'),
 	package_dir = {'': 'src'},
-	install_requires = ['setuptools'],
+	install_requires = ['setuptools','colorama'],
   entry_points = {
     'console_scripts': ['repomcloner=repomcloner.repomcloner:main'],
   }
